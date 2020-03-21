@@ -1,3 +1,1 @@
-![repository2](public/assets/images/repositorytwo.JPG)
-
-# Repository2
+# Temperature Logger

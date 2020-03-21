@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Track that temp!</title>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <nav>
+        <div class="nav-wrapper">
+          <a id="thermo" class="brand-logo" href="index.html"><i class="fa fa-thermometer-three-quarters fa-2x"></i></a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="temp.html">Temperature Tracker</a></li>
+            <li><a href="facts.html">Facts</a></li>
+          </ul>
+        </div>
+      </nav>
+    <h2>Welcome to your temperature tracker!</h2>
+
+    <h3>Please sign-up</h3>
+
+    <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="first_name" name="first_name" required="required" type="text" class="validate">
+              <label for="first_name">First Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="last_name" name="last_name" required="required" type="text" class="validate">
+              <label for="last_name">Last Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="password" name="password" required="required" type="password" class="validate">
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email" name="email" required="required" type="email" class="validate">
+              <label for="email">Email</label>
+            </div>
+          </div>
+        </form>
+      </div>
+      <button class="btn waves-effect waves-light center" type="submit" value="sign up" name="action">Submit
+        <i class="material-icons right"></i>
+      </button>
+</body>
+</html>
