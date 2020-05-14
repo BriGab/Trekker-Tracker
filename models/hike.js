@@ -2,7 +2,7 @@
 module.exports = function(sequelize, DataTypes) {
     const Hike = sequelize.define("Hike", {
         date: {
-            type: DataTypes.Date,
+            type: DataTypes.DATEONLY,
             allowNull: false
         },
         location: {
@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: true
         },
         photo :{
-            type: DataTypes.blob,
+            type: DataTypes.BLOB,
             allowNull: true
         },
         review: {
