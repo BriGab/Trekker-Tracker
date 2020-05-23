@@ -1,10 +1,13 @@
-const db = require("../models");
+const { User, Hike } = require("../models");
 const passport = require("../config/passport")
 
 module.exports= function(app) {
+
     app.post("/api/signup", function(req,res) {
-        db.User.Create(req.body)
+        console.log(req.body)
+        User.create(req.body)
         .then(function(dbUser){
+            console.log("got here")
             res.json(dbUser)
         })
         .catch(function(err) {
@@ -13,7 +16,10 @@ module.exports= function(app) {
     })
 
     app.post("/api/login", passport.authenticate("local"), function(req, res) {
-        console.log(req.body)
-        res.json(req.body)
+        console.log("got here on the login")
+        console.log(req.user)
+        res.json(req.user)
     })
+
+
 }

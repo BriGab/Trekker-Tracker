@@ -1,11 +1,17 @@
 {
-  "name": "repository2",
+  "name": "trekker_tracker",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "seed": "node scripts/seeds.js",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -19,14 +25,21 @@
   "homepage": "https://github.com/BriGab/Repository2#readme",
   "dependencies": {
     "bcrypt": "^4.0.1",
-    "bcryptjs": "^2.4.3",
+    "bootstrap": "^4.4.1",
+    "eslint-plugin-react-hooks": "^3.0.0",
     "express": "^4.17.1",
-    "express-handlebars": "^4.0.4",
     "express-session": "^1.17.0",
+    "if-env": "^1.0.4",
     "mysql2": "^2.1.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "path": "^0.12.7",
-    "sequelize": "^5.21.5"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "sequelize": "^5.21.9"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.7"
   }
 }

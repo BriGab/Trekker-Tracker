@@ -1,31 +1,27 @@
 const express = require ("express");
 const session = require ("express-session");
-
 const passport = require("./config/passport")
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 
 const db = require("./models")
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static("public"));
+// app.use(express.static("public"));
 
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
-var exphbs = require("express-handlebars");
-
-app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
 
 require("./routes/api")(app);
+require("./routes/html")(app);
 
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync({ /*force: true*/ }).then(function() {
     app.listen(PORT, function(){
         console.log("App listening on PORT " + PORT)
-    })
+     })
 })
